@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": { 
-    "start": "cd server && yarn run start",
-    "dev": "concurrently \"cd client && yarn start\" \"cd server && yarn run start-watch\"",
+    "start": "cd server && npm run start",
+    "dev": "concurrently \"cd client && npm run start\" \"cd server && npm run start-watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
