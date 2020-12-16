@@ -16,9 +16,6 @@ app.set("port", port);
 
 var server = http.createServer(app);
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
 
 
 server.listen(port);

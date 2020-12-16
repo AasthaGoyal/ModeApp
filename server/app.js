@@ -7,6 +7,7 @@ const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const crypto = require("crypto");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const userRouter = require("./routes/users");
 const itemRouter = require("./routes/images");
@@ -26,6 +27,8 @@ mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+mongoose.Promise = global.Promise;
 
 // connect to the database
 try {
@@ -61,15 +64,19 @@ try {
 // 		});
 // 	},
 // });
-
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // const upload = multer({ storage });
 
 app.use("/public", express.static("public"));
 
-app.use("/users", userRouter);
+app.use("/api/users", userRouter);
 //app.use("/items", itemRouter(upload));
 
-app.use("/items", itemRouter);
+app.use("/api/items", itemRouter);
 //app.use(cors(corsOptions));
 
 app.set("views", path.join(__dirname, "views"));

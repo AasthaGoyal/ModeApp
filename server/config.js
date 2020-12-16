@@ -1,3 +1,3 @@
 module.exports = {
-	mongoURI: process.env.MONGODB_URL  || "mongodb://localhost:27017/dbmode",
+	mongoURI: process.env.DB  || "mongodb://localhost:27017/dbmode",
 };
