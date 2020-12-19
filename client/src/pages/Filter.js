@@ -42,7 +42,7 @@ class Filter extends React.Component {
     let colorLists = [];
     axios
       .get(
-        "items/getItemByCategory/" + this.props.category
+        "/api/items/getItemByCategory/" + this.props.category
       )
       .then((res) => {
         if (res.data.success === true) {
@@ -92,7 +92,7 @@ class Filter extends React.Component {
 
   getMaxPrice() {
     axios
-      .get("items/getFilters")
+      .get("/api/items/getFilters")
       .then((res) => {
         if (res.data.success === true) {
           this.setState({ maxPrice: res.data.price });

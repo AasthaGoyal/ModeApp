@@ -133,7 +133,7 @@ class AddNewItem extends React.Component {
       formData.append("category", this.state.selectedOption);
 
       axios
-        .post("items/upload-images", formData, {})
+        .post("/api/items/upload-images", formData, {})
 
         .then((res) => res.data)
         .then((data) => {

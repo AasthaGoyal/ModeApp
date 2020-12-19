@@ -20,7 +20,7 @@ class ManageItems extends React.Component {
 
   componentDidMount() {
     axios
-      .get("items/getAllItems")
+      .get("/api/items/getAllItems")
       .then((res) => {
         this.setState({ item: res.data.items });
       })
@@ -39,7 +39,7 @@ class ManageItems extends React.Component {
       };
       axios
         .get(
-          "items/getItemByCategory/" +
+          "/api/items/getItemByCategory/" +
             this.state.selectedOption
         )
         .then((res) => {
@@ -63,7 +63,7 @@ class ManageItems extends React.Component {
   deleteItem = (id) => {
     console.log("id being deleted", id);
     axios
-      .post("items/deleteItemById/" + id)
+      .post("/api/items/deleteItemById/" + id)
       .then((res) =>
         res.data.success === true
           ? alert(res.data.message)

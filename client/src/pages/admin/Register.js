@@ -101,7 +101,7 @@ class Register extends React.Component {
           password: password.value,
         };
   
-        axios.post("users/addUser", data).then((res) => {
+        axios.post("/api/users/addUser", data).then((res) => {
           if (res.status === 200) {
             console.log(res);
             this.setState({ message: "The user has been saved successfully" });

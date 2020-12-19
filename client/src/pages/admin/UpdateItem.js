@@ -34,7 +34,7 @@ class UpdateItem extends React.Component {
 
   componentDidMount() {
     axios
-      .get("items/getItemById/" + this.props.itemId)
+      .get("/api/items/getItemById/" + this.props.itemId)
       .then(
         (res) => res.data.data
         // res.success === true
@@ -85,7 +85,7 @@ class UpdateItem extends React.Component {
 
     axios
       .post(
-        "items/updateItemById/" + this.props.itemId,
+        "/api/items/updateItemById/" + this.props.itemId,
         formData,
         {}
       )

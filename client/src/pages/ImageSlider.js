@@ -92,7 +92,7 @@ class ImageSlider extends React.Component {
     console.log(this.props.category);
     axios
       .get(
-        "items/getItemByCategory/" + this.props.category
+        "/api/items/getItemByCategory/" + this.props.category
       )
       .then((res) => {
         if (res.data.success === true) {

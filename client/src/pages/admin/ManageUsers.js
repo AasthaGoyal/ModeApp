@@ -13,7 +13,7 @@ class ManageUsers extends React.Component {
 
   componentDidMount() {
     axios
-      .get("users/getAllUsers")
+      .get("/api/users/getAllUsers")
       .then((res) => this.setState({ users: res.data }))
       .catch((err) => console.log("Some error occured", err));
   }

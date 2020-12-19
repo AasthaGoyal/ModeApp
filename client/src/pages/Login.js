@@ -48,7 +48,7 @@ class Login extends React.Component {
 
     if (this.state.cemail.length > 0) {
       axios
-        .get("users/resetPassword/" + this.state.cemail)
+        .get("/api/users/resetPassword/" + this.state.cemail)
         .then((res) => res.data)
         .then((data) => {
           emailjs.init(process.env.REACT_APP_USER_ID);
