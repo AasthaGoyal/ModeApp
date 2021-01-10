@@ -1,9 +1,7 @@
-import React from "react";
-import ScrollMenu from "react-horizontal-scrolling-menu";
+import React from "react";;
 import axios from "axios";
 import Details from "./Details";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 const main = {
   textAlign: "center",
