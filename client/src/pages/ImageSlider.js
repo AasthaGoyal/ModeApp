@@ -1,7 +1,8 @@
-import React from "react";;
+import React from "react";
+import ReactDOM from "react-dom";
 import axios from "axios";
 import Details from "./Details";
-import ReactDOM from "react-dom";
+
 
 const main = {
   textAlign: "center",

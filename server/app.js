@@ -25,7 +25,7 @@ const url = config.mongoURI;
 console.log(url);
 mongoose.connect(url, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true, 
 });
 
 mongoose.Promise = global.Promise;
