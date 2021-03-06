@@ -132,7 +132,7 @@ class Login extends React.Component {
       // no errors submit the form
       console.log("success");
       axios
-        .get("users/getUser", {
+        .get("/api/users/getUser", {
           params: {
             email: this.state.email.value,
             password: this.state.password.value,
