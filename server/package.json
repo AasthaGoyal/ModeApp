@@ -6,7 +6,7 @@
     "start": "node ./bin/www ",
     "start-watch": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"yarn run start-watch\" \"cd .. && cd client && yarn start\""
+    "dev": "concurrently \"npm run start-watch\" \"cd .. && cd client && npm run start\""
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
@@ -38,7 +38,7 @@
     "react-progress-bar": "^0.1.0",
     "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.3",
     "react-select": "^3.1.0",
     "uuid": "^8.3.1",
     "validation": "0.0.1",

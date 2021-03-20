@@ -123,7 +123,7 @@ class Header extends React.Component {
                 </div>
                 <div className="phone-service">
                   <i className=" fa fa-phone"></i>
-                  9910991208
+                 9958065877
                 </div>
               </div>
               <div className="ht-right">
@@ -153,27 +153,15 @@ class Header extends React.Component {
               <div className="row">
                 <div className="col-lg-2 col-md-2">
                   <div className="logo">
-                    <a href="./index.html">
-                      <img
-                        src="img/full_logo.jpeg"
-                        alt=""
-                        width="88"
-                        height="53"
-                      />
-                      {/* <img
-												src='img/logo_image.jpeg'
-												alt=''
-												width='53'
-												height='63'
-											/>
-											<img
-												src='img/logo_name.jpeg'
-												alt=''
-												width='65'
-												height='63'
-											/> */}
-                    </a>
-                  </div>
+
+			 <NavLink
+           exact
+           className="login-panel"
+           activeClassName="is-active"
+           to="/Home"
+          >
+           <img src="img/full_logo.jpeg" alt="" width="88" height="53" />
+          </NavLink>                   </div>
                 </div>
                 <div className="col-lg-7 col-md-7">
                   <div className="advanced-search">
