@@ -14,8 +14,11 @@ class Header extends React.Component {
    cat4: false,
    contact: false,
    selectedOption: "",
+   show: false,
   };
   this.handleClick = this.handleClick.bind(this);
+  this.onMenuClicked = this.onMenuClicked.bind(this);
+  this.onItemSelected = this.onItemSelected.bind(this);
  }
 
  handleClick = (e) => {
@@ -84,6 +87,82 @@ class Header extends React.Component {
     break;
   }
 
+  //e.target.className="navvar-item active is-active ";
+  //e.target.backgroundColor="#E7AB3C";
+ };
+
+ onMenuClicked(e) {
+  this.setState({
+   show: !this.state.show,
+  });
+ }
+
+ onItemSelected = (e) => {
+  e.preventDefault();
+
+  switch (e.target.id) {
+   case "home":
+    this.setState({
+     home: true,
+     cat1: false,
+     cat2: false,
+     cat3: false,
+     cat4: false,
+     contact: false,
+    });
+    break;
+   case "cat1":
+    this.setState({
+     home: false,
+     cat1: true,
+     cat2: false,
+     cat3: false,
+     cat4: false,
+     contact: false,
+    });
+    break;
+   case "cat2":
+    this.setState({
+     home: false,
+     cat1: false,
+     cat2: true,
+     cat3: false,
+     cat4: false,
+     contact: false,
+    });
+    break;
+   case "cat3":
+    this.setState({
+     home: false,
+     cat1: false,
+     cat2: false,
+     cat3: true,
+     cat4: false,
+     contact: false,
+    });
+    break;
+   case "cat4":
+    this.setState({
+     home: false,
+     cat1: false,
+     cat2: false,
+     cat3: false,
+     cat4: true,
+     contact: false,
+    });
+    break;
+   case "contact":
+    this.setState({
+     home: false,
+     cat1: false,
+     cat2: false,
+     cat3: false,
+     cat4: false,
+     contact: true,
+    });
+    break;
+  }
+  window.location.reload(false);
   //e.target.className="navvar-item active is-active ";
   //e.target.backgroundColor="#E7AB3C";
  };
@@ -192,11 +271,13 @@ class Header extends React.Component {
                       </option>
                       {cats}
                     </select> */}
+
           <Dropdown>
            <Dropdown.Toggle
             variant="warning"
             id="dropdown-variants-warning"
             className="category-btn"
+            background-color="#E7ab3c"
            >
             All categories
            </Dropdown.Toggle>
@@ -220,13 +301,16 @@ class Header extends React.Component {
          </div>
         </div>
         <div className="col-lg-3 text-right col-md-3">
-         <ul className="nav-right">
-          <li className="heart-icon">
-           {/* <a href="#">
-                        <label className="input">Your saved searches</label>
-                        <i className="icon_heart_alt"></i>
-                        <span>1</span>
-                      </a> */}
+         <ul class="nav-right">
+          <li class="heart-icon">
+           <a href="#">
+            <i class="icon_heart_alt"></i>
+           </a>
+          </li>
+          <li class="cart-icon">
+           <a href="#">
+            <i class="icon_bag_alt"></i>
+           </a>
           </li>
          </ul>
         </div>
@@ -323,7 +407,124 @@ class Header extends React.Component {
          </li>
         </ul>
        </nav>
-       <div id="mobile-menu-wrap"></div>
+       <div id="mobile-menu-wrap">
+        <div class="slicknav_menu">
+         <a
+          href="#"
+          aria-haspopup="true"
+          role="button"
+          tabindex="0"
+          class="slicknav_btn slicknav_collapsed"
+          style={{ outline: "none" }}
+         >
+          <span
+           class="slicknav_menutxt"
+           onClick={this.onMenuClicked}
+           cursor="pointer"
+          >
+           MENU
+          </span>
+          <span class="slicknav_icon" cursor="pointer">
+           <span class="slicknav_icon-bar"></span>
+           <span class="slicknav_icon-bar"></span>
+           <span class="slicknav_icon-bar"></span>
+          </span>
+         </a>
+         <nav
+          class="slicknav_nav slicknav_hidden"
+          aria-hidden="true"
+          role="menu"
+          style={this.state.show ? { display: "inherit" } : { display: "none" }}
+         >
+          <ul onClick={this.onItemClicked}>
+           <li
+            className={this.state.home ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="home"
+             to="/Home"
+            >
+             Home
+            </NavLink>
+           </li>
+           <li
+            className={this.state.cat1 ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="cat1"
+             to="/Kurta"
+            >
+             Kurta
+            </NavLink>
+           </li>
+           <li
+            className={this.state.cat2 ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="cat2"
+             to="/KurtaPlazo"
+            >
+             Kurta Plazo
+            </NavLink>
+           </li>
+           <li
+            className={this.state.cat3 ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="cat3"
+             to="/ALineKurta"
+            >
+             A Line Kurta
+            </NavLink>
+           </li>
+           <li
+            className={this.state.cat4 ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="cat4"
+             to="/Dupatta"
+            >
+             Dupatta Set
+            </NavLink>
+           </li>
+           <li
+            className={this.state.contact ? "active" : null}
+            onClick={this.onItemSelected}
+           >
+            <NavLink
+             exact
+             className="navvar-item"
+             activeClassName="is-active"
+             id="contact"
+             to="/ContactUs"
+            >
+             Contact Us
+            </NavLink>
+           </li>
+          </ul>
+         </nav>
+        </div>
+       </div>
       </div>
      </div>
     </header>
